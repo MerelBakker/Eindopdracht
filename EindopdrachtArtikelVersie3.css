@@ -1,0 +1,282 @@
+/*
+
+Header
+- Volgorde van de onderdelen in de header veranderd met flexbox - order.
+- Profielpagina link rechtsbovenin, dat zijn mensen gewend.
+- Logo bovenaan met daaronder informatie over de pagina.
+- CMD logo weg bij klein scherm, content is belangrijker dan het logo. Een titel is voldoende.
+
+Navigatie
+- Op klein scherm een hamburgermenu, zodat de navigatie minder ruimte inneemt en er meer ruimte overblijft voor de
+  content.
+- Op groot scherm navigatie naast elkaar - Breed zodat het snel en gemakkelijk vindbaar is. Achtergrondkleur om de links,
+  zodat je snel ziet dat het knoppen zijn.
+- Kleine box-shadow achter de navigatie knoppen, om duidelijker aan te geven dat dit knoppen zijn.
+
+Zoekfunctie
+- Zoekfunctie rechtsbovenin, valt op, snel vindbaar.
+- Zoekfunctie: placeholder weggehaald, de placeholder maakte het niet duidelijker hoe je kon zoeken. De gebruiker wil een
+  zoekwoord proberen en niet eerst hoeven nadenken over of het wel of niet ingevoerd kan worden.
+
+Foto's en video
+- Afbeeldingen veranderen bij een andere schermgrootte door het picture element. Hierdoor worden kleine afbeeldingen naar
+  een mobiel device gestuurd en grote afbeeldingen naar desktop computers.
+- Op groot scherm wordt het logo en de afbeelding over beroepen groter bij hover. De afbeelding beroepen.jpg wordt groter
+  als de gebruiker er twee seconden met zijn muis overheen beweegt. Daardoor is de tekst in de afbeelding beter leesbaar.
+  Ook krijgt de afbeelding een box-shadow om aan te geven dat deze als het ware op de pagina ligt.
+- Video wordt groter naarmate het scherm groter wordt.
+
+Leesbaarheid
+- Op groot scherm drie kolommen naast elkaar, zodat de regellengte niet te groot wordt. Dit voor een goede leesbaarheid
+  (goede leesbaarheid 20 - 40 em). Daarom is de minimale breedte 20 em (tekst past anders ook niet volledig op het kleine
+  scherm).
+- Standaard line-height groter gemaakt om de leesbaarheid te verbeteren.
+- Padding om de tekst binnen de blokken en marges om de blokken, daardoor meer witruimte.
+- Verschillende font-sizes gebruikt om hiërarchie aan te geven en belangrijke stukken tekst te benadrukken en meer op te
+  laten vallen.
+- Lichte achtergrondkleuren gebruikt (zwart op wit leest minder prettig, te veel contrast).
+
+- Em's en procenten gebruikt om de gebruiker meer mogelijkheden te geven, pagina past zich aan aan de instellingen van de
+  gebruiker en staat niet vast zoals bij pixels.
+- Bij hover veranderen links van kleur om duidelijk te maken dat het klikbaar is.
+
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: verdana, calibri, sans-serif;
+    line-height: 1.5em;
+    min-width: 20em;
+}
+
+/* Header */
+body > header {
+    background-color: #fecb2f;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.to-profile {
+    width: 100%;
+    text-align: right;
+    order: -2;
+    margin: -1em;
+}
+
+img[src="cmd_logo.png"] {
+    visibility: hidden;
+    width: 30%;
+    height: 30%;
+    order: 1;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2em;
+}
+
+body > header > h1 {
+    order: 2;
+    text-align: center;
+    width: 100%;
+}
+
+body > header > p {
+    order: 3;
+    text-align: center;
+    width: 100%;
+}
+
+img[src="images.png"] {
+    visibility: visible;
+    width: 2em;
+    height: 2em;
+}
+
+header > nav {
+    width: 100%;
+    order: 4;
+    margin-bottom: -1em;
+}
+
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+}
+
+header li {
+    background-color: aliceblue;
+    width: 100%;
+    padding: 1em 3em 1em 3em;
+    box-shadow: .1em .1em 0em; 0em;
+}
+
+header li a {
+    color: black;
+}
+
+header li a:hover {
+    color: #fecb2f;
+}
+
+header li:hover {
+    background-color: #dde7ef;
+}
+
+header > form {
+    order: -1;
+    width: 100%;
+    text-align: right;
+    margin-top: .5em;
+    margin-bottom: -1em;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
+/* Links bij hover */
+main a:hover {
+    color: #fecb2f;
+}
+
+.related a:hover {
+    color: #fecb2f;
+}
+
+aside a:hover {
+    color: white;
+}
+
+aside + footer a:hover {
+    color: white;
+}
+
+/* Main */
+main {
+    background-color: aliceblue;
+    font-size: 1em;
+    padding: 2.5em;
+    width: 100%;
+    float: left;
+}
+
+/* Gerelateerde artikelen */
+.related {
+    background-color: #dde7ef;
+    font-size: 1em;
+    padding: 2em;
+    width: 100%;
+    float: left;
+    vertical-align: top;
+}
+
+img {
+    width: 100%;
+}
+
+aside {
+    background-color: lightgray;
+    font-size: .9em;
+    float: left;
+    width: 100%;
+    padding: 2em;
+}
+
+/* Div met picture en video element */
+#fotovideo {
+    background-color: lightgray;
+}
+
+/* Footer */
+div + footer {
+    background-color: #fecb2f;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    clear: left;
+}
+
+/* Media Queries */
+@media screen and (min-width: 40em) {
+    header li {
+        width: 100%;
+        text-align: center;
+    }
+    img[src="cmd_logo.png"] {
+        visibility: visible;
+    }
+    main {
+        width: 50%;
+    }
+    .related {
+        width: 50%;
+    }
+    aside {
+        width: 100%;
+    }
+    video {
+        width: 40em;
+    }
+     img[src="images.png"] {
+        visibility: hidden;
+    }
+}
+
+@media screen and (min-width: 70em) {
+    header ul {
+        display: inline-block;
+    }
+    header li {
+        width: 100%;
+        text-align: center;
+        display: inline;
+
+    }
+    img[src="cmd_logo.png"] {
+        visibility: visible;
+    }
+    img[src="cmd_logo.png"]:hover {
+        transition: 1.5s 0s ease;
+            transform: scale(1.5);
+    }
+    img[src="beroepen.jpg"]:hover {
+        transition: 1.5s 1s ease;
+        transform: scale(1.6);
+        margin-left: 7em;
+        box-shadow: .1em .1em 0.1em; 0em;
+    }
+    main {
+        width: 50%;
+    }
+    .related {
+        width: 30%;
+        height: 189.3em;
+    }
+    aside {
+        width: 20%;
+        height: 210.35em;
+    }
+    video {
+        width: 75em;
+    }
+     img[src="images.png"] {
+        visibility: hidden;
+    }
+}
+
+
+.toon {
+    display: none;
+}
+
+
